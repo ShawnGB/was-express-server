@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3030;
 
 app.get("/", indexHandler);
-app.get("/color{/:format}", randomColorHandler);
+app.get("/color", randomColorHandler);
 
 app.listen(port, () => {
   console.log(`server running on port:${port}`);

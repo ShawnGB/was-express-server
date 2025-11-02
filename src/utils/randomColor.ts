@@ -1,5 +1,5 @@
 // @ts-ignore
-import { randomColor } from "randomcolor";
+import randomColor from "randomcolor";
 
 interface RandomColorResponse {
   hex: string;
@@ -8,15 +8,12 @@ interface RandomColorResponse {
 }
 export const genrateRandomColor = (): RandomColorResponse => {
   const seed = Math.random().toString();
-  return {
-    hex: randomColor({
-      seed,
-      format: "hex",
-    }),
-    rgb: randomColor({
-      seed,
-      format: "rgb",
-    }),
-    hsl: randomColor({ seed, format: "hsl" }),
-  };
+
+  const formats = ["hex", "rgb", "hsl"];
+
+  const [hex, rgb, hsl] = formats.map((format) =>
+    randomColor({ seed, format }),
+  );
+
+  return { hex, rgb, hsl };
 };

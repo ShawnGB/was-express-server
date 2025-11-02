@@ -1,2 +1,4 @@
 node_modules
 GEMINI.md
+dist
+.env
